@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage{enumitem}
+\usepackage{Sweave}
+\begin{document}
+\input{uitleg_opdracht_1-concordance}
+
+
+\section{Simulties opdracht 1}
+\label{sec:sample_main}
+
+\subsection{Opdrachtomschrijving}
+\label{subsec:sample_opdrom}
+
+In Excel levert ASELECT() een randomgetal tussen 0 en 1. Je "trekt" dan een randomgetal uit de (bij benadering) continue uniforme verdeling met grenzen 0 en 1. Genereer 1000 getallen met ASELECT(). Als de getallen "goed" random zouden zijn verwacht je o.a. in de intervallen 
+0-0.1, 0.1-0.2, ..., 0.9-1 ongeveer 100 getallen. In deze opdracht ga je dit onderzoeken.
+\newline
+
+\begin{enumerate}[label=(\Alph*)]
+
+\item Laat in een staafgrafiek zien hoe de 1000 getallen over deze intervallen verdeeld zijn. 
+\newline
+
+Het aantal getallen in elk interval noteer je met  (de O van Observed) met  i=1..10
+\newline
+
+\item Bepaal  \begin{equation} \sum_{i=1}^{10} \frac{(O_i-100)^2}{100} \end{equation}
+\newline
+
+Met een Chikwadraat-toets kun je onderzoeken een verdeling uniform verdeeld is. In b) heb je al de toetsingsgrootheid berekend
+\newline
+
+\item Toets nu met onbetrouwbaarheidsdrempel \begin{equation} \alpha = 0,05 \end{equation}  of de getallen uniform verdeeld zijn over de 10 deelintervallen. De grens van het kritieke gebied kun je bepalen met de functie CHI.KWADRAAT.INV in Excel. Eventueel kun je ook de functie CHI.TOETS gebruiken.
+\newline
+
+\item Druk op F9, F9, F9 ... Op die manieren toets je de hypothese steeds opnieuw. Conclusie?
+\end{enumerate}
+
+\newpage
+\subsection{Uitvoering}
+\label{subsec:sample_uitv}
+
+In de bijgevoegde excel is opdracht 1 uitgewerkt. Deze sectie geeft toelichting waar nodig en de stappen die doorlopen zijn.
+
+\begin{enumerate}
+\item In kolom a in excel zijn 1000 random getallen tussen 0 en 1 gegenereerd met de functie rand()
+\item In kolom b zijn de 1000 random getallen afgerond naar boven zodat ze makkelijker in een frequentietabel te stoppen zijn.
+\item C4:C13 zijn de vergelijkingswaarden voor de frequentietabel.
+\item J12:J21 zijn de frequenties die geteld zijn met een countif() statement. 
+\item In K12:K21 zie je de frequentie zoals uitgerekend in 1b alleen nog niet gesommeerd. Deze sommatie zie je in K22. 
+\item In cell K25 zie je de chi kwadraat inverse functie uitgerekend met onbetrouwbaarheidsdrempel van 0.05 en 9 vrijheidsgraden.
+\item L12:L21 zijn de verwachte waardes van de frequentietabel
+\item In cell K26 is de chi test uitgevoerd
+\end{enumerate}
+
+\section{Conclusie}
+\label{subsec:sample_con}
+
+Na een aantal keer op F9 gedrukt te hebben is het me opgevallen dat de toetsingrootheid als berekent in 1b niet altijd kleiner is dan de kritieke waarde zoals berekend in 1c. Daarmee is de conclusie dat de functie rand() niet altijd continue uniforme verdeeld is.
+
+Aan de hand van de chi.test functie die ook uitgevoerd is kan je concluderen dat deze na een aantal tests altijd groter was dan 0.05 en dit laat zien dat de frequentie onafhankelijk zijn.
+
+
+\end{document}
