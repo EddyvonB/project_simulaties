@@ -1,0 +1,91 @@
+\documentclass{article}
+\usepackage{enumitem}
+\usepackage{Sweave}
+\begin{document}
+\input{uitleg_opdracht_3-concordance}
+
+
+\section{Simulties opdracht 3}
+\label{sec:sample_main}
+
+\subsection{Opdrachtomschrijving}
+\label{subsec:sample_opdrom}
+
+\begin{enumerate}[label=(\Alph*)]
+
+\item Bestudeer in Excel de werking van de functie KIEZEN. 
+\item Welke kansverdeling hoort bij de Excel functie 
+  \begin{equation}kiezen(afronden.boven(10*ASELECT();1);1;2;2;3;3;3;4;4;4;4)\end{equation}
+\item Bepaal een functie in Excel die getallen genereert uit de volgende discrete kansverdeling:
+
+\begin{table}[h]
+  \begin{tabular}{|l|r|r|r|r|r|}
+      \hline
+      k & 0 & 4 & 8 & 12 & 16 \\ \hline
+      kans & 4/15 & 1/3 & 1/15 & 1/5 & 2/15 \\ 
+      \hline
+  \end{tabular}
+\end{table}
+
+\item Genereer 1500 getallen uit de kansverdeling die in C) gegeven is en onderzoek met de Chikwadraat-toets of de data uit je steekproef bij de kansverdeling past. 
+
+\end{enumerate}
+
+\newpage
+\subsection{Uitvoering}
+\label{subsec:sample_uitv}
+
+In de bijgevoegde excel is opdracht 3 uitgewerkt. Deze sectie geeft toelichting waar nodig en de stappen die doorlopen zijn.
+
+\begin{enumerate}[label=(\Alph*)]
+\item De functie kiezen, kiest het element waar uit een gegeven lijst. Het element wat het kiest is afhankelijk van de eerste parameter die wordt ingegeven. Wanneer de functie als volgt is opgebouwd:  
+  \begin{equation}choose(1;a;b;c;d)\end{equation}
+  Deze functie zal a terug keren, omdat deze op positie 1 staat in de lijst. Wanneer de eerste parameter 2 is in plaats van 1, retourneert de functie b.
+\item  De bijbehorende kansverdeling is
+
+\begin{table}[h]
+  \begin{tabular}{|l|r|r|r|r|}
+      \hline
+      k & 1 & 2 & 3 & 4 \\ \hline
+      kans & 0.1 & 0.2 & 0.3 & 0.4 \\ 
+      \hline
+  \end{tabular}
+\end{table}
+
+\item Als eerst is de volgende tabel:
+
+\begin{table}[h]
+  \begin{tabular}{|l|r|r|r|r|r|}
+      \hline
+      k & 0 & 4 & 8 & 12 & 16 \\ \hline
+      kans & 4/15 & 1/3 & 1/15 & 1/5 & 2/15 \\ 
+      count \%  & 0\%	& 27\%	& 60\% &	67\%	& 87\% \\
+      \hline
+  \end{tabular}
+\end{table}
+
+Vervolgens kan je uit deze tabel de volgende functie opmaken. Deze functie geeft de gewenste output.
+\begin{equation} LOOKUP(RAND();count \%;k) \end{equation}
+
+\item In kolom a van het bijgevoegde excel. Zijn 1500 getallen gegeneerd.
+
+\begin{table}[h]
+\begin{tabular}{lrrrrr}
+\hline
+\multicolumn{1}{|l|}{k}        & 0   & 4   & 8   & 12  & \multicolumn{1}{l|}{16}  \\ \hline
+\multicolumn{1}{|l|}{actual}   & 408 & 506 & 100 & 292 & \multicolumn{1}{l|}{194} \\ \cline{2-6} 
+\multicolumn{1}{|l|}{expected} & 400 & 500 & 100 & 300 & \multicolumn{1}{l|}{200} \\ \hline     
+\end{tabular}
+\end{table}
+
+In bovenstaande tabel zie je de waardes die gebruikt zijn bij het rekenen van de chisq.test. In E1 zie je de uitkomst van de chisqr.test. 
+\end{enumerate}
+
+
+\section{Conclusie}
+\label{subsec:sample_con}
+
+Aan de hand van de chi.test functie die ook uitgevoerd is kan je concluderen dat deze na een aantal tests altijd groter is dan alpha, waar we alpha gelijk nemen aan 0.05, dit laat zien dat de frequenties onafhankelijk zijn.
+
+
+\end{document}

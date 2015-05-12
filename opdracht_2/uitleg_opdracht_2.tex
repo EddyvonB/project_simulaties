@@ -1,0 +1,64 @@
+\documentclass{article}
+\usepackage{enumitem}
+\usepackage{Sweave}
+\begin{document}
+\input{uitleg_opdracht_2-concordance}
+
+
+\section{Simulties opdracht 2}
+\label{sec:sample_main}
+
+\subsection{Opdrachtomschrijving}
+\label{subsec:sample_opdrom}
+
+Met behulp van ASELECT() kun je randomgetallen uit kansverdelingen genereren. In de cursus spreadsheets Excel 1 heb je bv. geleerd dat AFRONDEN.BOVEN(6*ASELECT();1) de gehele getallen 1 t/m 6 met gelijke kans genereert. Je "trekt" dan een randomgetal uit de discrete uniforme verdeling met 6 elementen.
+
+Maak in Excel functies die randomgetallen voortbrengen uit:
+\begin{enumerate}[label=(\Alph*)]
+\item de discrete uniforme verdeling met waarden 0 t/m 13  
+\item de uniforme continue verdeling met grenzen 0 en 10
+\item de uniforme continue verdeling met grenzen -2 en 3
+\item de discrete kansverdeling met verdeling:
+\end{enumerate}
+
+\begin{table}[h]
+  \begin{tabular}{|l|r|r|}
+      \hline
+      k & 0 & 1 \\ \hline
+      kans & 2/3 & 1/3 \\ 
+      \hline
+  \end{tabular}
+\end{table}
+
+\newpage
+\subsection{Uitvoering}
+\label{subsec:sample_uitv}
+
+In de bijgevoegde excel is opdracht 2 uitgewerkt. Deze sectie geeft toelichting waar nodig en de stappen die doorlopen zijn.
+
+\begin{enumerate}[label=(\Alph*)]
+\item in kolom b is de volgende functie gebruikt: \begin{equation} ROUNDDOWN(14*RAND();0) \end{equation}  Er is gekozen voor rounddown omdat de functie rand 1 niet meeneemt en 13 moet er wel bij zitten. Omdat de functie rand uniform verdeeld is en de waardes discreet zijn, krijg je hier een discrete uniforme verdeling.
+\item In kolom e is de functie:\begin{equation}  \frac{RANDBETWEEN(0*1000000;10*1000000)}{1000000} \end{equation} gebruikt. Hiermee krijg je uniform continue verdeling. Elke waarde tussen 0 en 10 kan met deze functie gegeneerd worden, daardoor is deze genereerd deze functie continue variablen. Omdat op elke variable evenveel kans is, is deze ook uniform verdeelt.
+\item In kolom h is de functie: \begin{equation} \frac{RANDBETWEEN(-2*1000000;3*1000000)}{1000000} \end{equation} gebruikt. Hiermee krijg je uniform continue verdeling. Elke waarde tussen -2 en 3 kan met deze functie gegeneerd worden, daardoor is deze genereerd deze functie continue variablen. Omdat op elke variable evenveel kans is, is deze ook uniform verdeelt.
+\item Voor opdracht D) heb is er een tabel gegeneerd die als volgt is:
+
+\begin{table}[h]
+  \begin{tabular}{|l|r|r|}
+      \hline
+      k & 0 & 1 \\ \hline
+      kans & 2/3 & 1/3 \\ 
+      \% & 0\% & 67\% \\ 
+      \hline
+  \end{tabular}
+\end{table}
+
+Met de derde rij van deze tabel kunnen we de volgende functie gebruiken \begin{equation} LOOKUP(RAND();0\%:67\%;0:1) \end{equation} Deze functie geeft met kans 67\% 0 terug en met 33\% kans 1 terug. Dit is conform de wens bij D) in kolom k van het bijgevoegde excel bestand zie je de resultaten.
+\end{enumerate}
+
+\section{Conclusie}
+\label{subsec:sample_con}
+
+Aan opdracht 2 is aan alle eisen voldaan. Echter opdracht B) en C) zouden nog uitgebreider kunnen als je het getal wat nu 1.000.000 is, groter maakt.
+
+
+\end{document}

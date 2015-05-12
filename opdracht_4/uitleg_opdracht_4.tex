@@ -1,0 +1,88 @@
+\documentclass{article}
+\usepackage{enumitem}
+\usepackage{Sweave}
+\begin{document}
+\input{uitleg_opdracht_4-concordance}
+
+
+\section{Simulties opdracht 4}
+\label{sec:sample_main}
+
+\subsection{Opdrachtomschrijving}
+\label{subsec:sample_opdrom}
+
+Probleem:
+Een stok van 1 meter lengte wordt volstrekt willekeurig in drie stukken verdeeld (zie figuur hiernaast) Hoe groot is de kans dat je met de drie stukken een scherphoekige driehoek kunt vormen, dwz dat alle hoeken kleiner of gelijk aan  is? 
+
+Dit probleem is niet eenvoudig analytisch op te lossen. Met een simulatie kun je deze kans benaderen (op bv 2 decimalen). Maar voordat je een simulatie gaat maken zul je een aantal deelproblemen moeten oplossen:
+
+
+\begin{enumerate}[label=(\Alph*)]
+
+\item Noem de lengte van de drie stukken a, b en c. Uiteraard geldt \begin{equation} 0 > a >1\end{equation} \begin{equation} 0 > b >1\end{equation} \begin{equation} 0 > c >1\end{equation} Welke relaties moeten er gelden tussen de variabelen zodat je met die drie lengtes een driehoek kunt vormen?
+\item Stel dat de drie lengtes 0.25, 0.35 en 0.4 bedragen. Bereken met behulp van goniometrie de drie hoeken in de driehoek. Is de driehoek scherphoekig?
+
+\end{enumerate}
+
+In het bestand stok.xls vind je werkbladen waarin dit probleem gesimuleerd is. Open dat bestand, lees het werkblad met de naam lees mij en bestudeer de opbouw van het werkblad data zorgvuldig (bekijk vooral de gebruikte functies). Ga na of dit programma het probleem correct simuleert. Experimenteer en ga na of de kansen in lees mij kloppen.
+
+\newpage
+\subsection{Uitleg}
+\label{subsec:sample_uitv}
+
+\begin{enumerate}[label=(\Alph*)]
+
+\item Om een driehoek te kunnen maken moet aan de volgende eis voldaan worden:
+\begin{equation} a+b > c\end{equation}
+Waarbij c de langste zijde is. Dit is de enige relatie die nodig is om een driehoek te maken.
+
+Om een scherphoekige driehoek te kunnen maken moet ook nog aan de volgende eis voldaan worden:
+\begin{equation} hoek \leq \frac{\pi}{2} = 1.57 \end{equation}
+Waarbij c de langste zijde is. Dit is de enige relatie die nodig is om een driehoek te maken.
+
+\item Allereerst controleren we of de drie gegeven lengtes een driehoek kunnen vormen.
+\begin{equation} 0.25+0.35 = 0.6 > 0.4\end{equation}
+
+Aan deze eis wordt voldaan.
+
+De cosinusregel geeft ons nu de volgende drie vergelijkingen. 
+
+\begin{equation} c^{2} = a^{2} + b^{2} - 2 \cdot a \cdot b \cdot cos(\gamma) \end{equation}
+\begin{equation} b^{2} = a^{2} + c^{2} - 2 \cdot a \cdot c \cdot cos(\beta) \end{equation}
+\begin{equation} a^{2} = b^{2} + c^{2} - 2 \cdot b \cdot c \cdot cos(\alpha) \end{equation}
+
+Wanneer je deze omschrijft zodat je de hoek eruit haalt kan er berekent worden of alle hoeken daadwerkelijk scherp zijn.
+
+\begin{equation} \gamma = arccos(\frac{c^{2} - a^{2} - b^{2}}{- 2 \cdot a \cdot b}) \end{equation}
+\begin{equation} \beta = arccos(\frac{b^{2} - a^{2} - c^{2}}{- 2 \cdot a \cdot c}) \end{equation}
+\begin{equation} \alpha = arccos(\frac{a^{2} - b^{2} - c^{2}}{- 2 \cdot b \cdot c}) \end{equation}
+
+Wanneer je de getallen invult krijg je de volgende vergelijkingen:
+
+\begin{equation} \gamma = arccos(\frac{0.4^{2} - 0.25^{2} - 0.35^{2}}{- 2 \cdot 0.25 \cdot 0.35} = 1.43) \end{equation}
+\begin{equation} \beta = arccos(\frac{0.35^{2} - 0.25^{2} - 0.4^{2}}{- 2 \cdot 0.25 \cdot 0.4} = 1.05) \end{equation}
+\begin{equation} \alpha = arccos(\frac{0.25^{2} - 0.35^{2} - 0.4^{2}}{- 2 \cdot 0.35 \cdot 0.4} = 0.67) \end{equation}
+
+Wanneer alpha, beta en gamma kleiner zijn dan de gewenste grootheid zoals gegeven is bij vergelijking 5.
+Zoals je kan zien voldoet elke hoek aan deze eis en is dit dus een scherphoekige driehoek.
+\end{enumerate}
+
+In het bijgeleverd excel staat in het eerste leesmij tab de volgende waardes:
+
+\begin{table}[h]
+  \begin{tabular}{|l|l|}
+      \hline
+      P(scherp) & 0.07 \\ \hline
+      P(scherp | driehoek mogelijk)  & 0.3 \\ 
+      \hline
+  \end{tabular}
+\end{table}
+
+De vraag was of de bijgeleverde excel de correcte benadering voor het probleem gebruikt. In kolom G zie je dat aan de voorwaarde wordt voldaan die in vergelijking 4 is weergegeven. 
+\section{Conclusie}
+\label{subsec:sample_con}
+
+
+
+
+\end{document}
