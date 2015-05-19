@@ -1,0 +1,61 @@
+---
+title: "Project simulaties opdracht 5"
+author: "Eddy van Beekveld"
+date: "5/19/2015"
+output: html_document
+runtime: shiny
+---
+
+```{r, echo=FALSE}
+###required packages
+library(shiny)
+library(ggplot2)
+
+
+##make an input slider where you can determine the range
+inputPanel(
+  sliderInput("range", label = "determine the range of the random points",
+              min = 20 , max =100 , value = 20 , step = 1),
+  uiOutput('test')
+)
+
+###A reactive function, when you change the value of the slider, the graph and the chance of roots changes
+myReact <- reactive({
+  ##make a dataframe
+  out <- data.frame(a = integer(),
+                    b = integer(),
+                    c = integer()
+                    )
+  ##generate a,b and c from random range [-selectedrange, selectedrange]
+  for(i in 1:1000){
+    out[i,1] <- runif(1, -1*input$range, input$range)
+    out[i,2] <- runif(1, -1*input$range, input$range)
+    out[i,3] <- runif(1, -1*input$range, input$range)
+    
+    ##calculate if it has any roots.
+    if((out$b[i]^2 - 4*out$a[i]*out$c[i]) < 0){
+      out$d[i] <- 'no roots'
+    } else {
+      out$d[i] <- 'roots'
+    }
+  }
+  
+  out
+})
+
+##an active bar plot which changes if the slider is used
+renderPlot({
+  ggplot(myReact()) +
+  geom_bar(aes(factor(d)), stat="bin") +
+  scale_x_discrete("root?") +
+  scale_y_continuous("count", breaks = c(0, 50, 100, 150, 200, 250, 300, 350, 400, 450, 500, 550, 600, 650, 700, 750, 800, 850, 900, 950, 1000))
+})
+
+##an active print of the chance for roots.
+renderPrint({
+    a <- myReact()
+    list( 'chanceNoRoot' = round(as.numeric(table(a$d)['no roots']) / 1000 , 2), 
+          'chanceRoot'   = round(as.numeric(table(a$d)['roots'] ) / 1000 , 2))
+  })
+
+```

@@ -1,0 +1,62 @@
+\documentclass{article}
+\usepackage{enumitem}
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+
+
+\section{Simulties opdracht 4}
+\label{sec:sample_main}
+
+\subsection{Opdrachtomschrijving}
+\label{subsec:sample_opdrom}
+
+Probleem:
+
+Hoe groot is de kans dat de kwadratische vergelijking geen nulpunten heeft als de coefficienten a, b en c willekeurig uit het continue interval [-20,20] gekozen worden?
+
+Ook dit probleem is niet eenvoudig analytisch op te lossen. Met een simulatie kun je deze kans schatten.
+
+
+\begin{enumerate}[label=(\Alph*)]
+
+\item Maak een werkblad in Excel waarmee je dit probleem simuleert. Laat je inspireren door het bestand stok.xls. Schat de kans op 2 decimalen nauwkeurig.
+
+\item Onderzoek ook hoe groot de kans is als de coefficienten [-30,30] in liggen.
+
+Waarschijnlijk heb je in onderdeel b) de waarde in een bepaalde cel veranderd. Als je dat vele malen wilt herhalen dan kan dat het beste met een schuifbalk in Excel. Een gebruiker kan dan een waarde continue veranderend instellen. Zoek eens uit hoe je in Excel een schuifbalk maakt (tabblad ontwikkelaars toevoegen, kies een formulierbesturingselement).
+
+\item Maak nu een schuifbalk waarmee je de maximale waarde voor a, b, c kunt instellen van 20 (waarde onderdeel a) tot 100.
+
+Gebruik de schuifbalk voor de volgende vragen:
+
+\item Hoe groot is de kans op geen oplossingen als de coefficienten [-60,60] in liggen?
+
+\item Hoe groot wordt die kans als de maximumwaarde steeds groter wordt. Convergeert de kans naar een vaste waarde?
+\end{enumerate}
+
+
+\newpage
+\subsection{Uitleg}
+\label{subsec:sample_uitv}
+
+
+
+Voor deze opdracht heb ik gekozen om deze op te lossen met een R shiny document genaamd simulatie_5.Rmd. Wat is R shiny? Dit is een web applicatie framework voor R. Het is interactief en er zijn veel mogelijkheden. Alle antwoorden die hierboven gevraagd worden zijn in de interactieve html die R shiny genereerd weergegeven. Toch wil ik in dit hoofdstuk nog wat meer toelichting geven. 
+
+
+Voor E) heb ik eerst een gewone R file aangemaakt genaamd: simulatie_5.R. In deze file wordt de hypothese test uitgevoerd voor 100 test van 1000 waarnemingen.
+\begin{enumerate}[label=(\Alph*)]
+\item Kans op nulpunten = 0.62 en kans op geen nulpunten = 0.38. Zie file simulatie_5.Rmd
+\item Kans op nulpunten = 0.63 en kans op geen nulpunten = 0.37. Zie file simulatie_5.Rmd
+\item Zie file simulatie_5.Rmd
+\item Kans op geen nulpunten = 0.34. Zie file simulatie_5.Rmd
+\item Convergeert naar 0.63. In file simulatie_5.R kan je de hypothesetest doen. In mijn geval werd hij niet verworpen met een mu van 0.63. De uitleg van mijn stappen kan je daar na lezen.
+\end{enumerate}
+
+
+\section{Conclusie}
+\label{subsec:sample_con}
+Voor opdracht E) is de hypothesetest uitgevoerd en deze is niet verworpen. De aanname dat de kans convergeert is dus correct.
+
+
+\end{document}
