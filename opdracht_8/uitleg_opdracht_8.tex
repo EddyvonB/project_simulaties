@@ -1,0 +1,46 @@
+\documentclass{article}
+\usepackage{enumitem}
+\usepackage{Sweave}
+\begin{document}
+\input{uitleg_opdracht_8-concordance}
+
+
+\section{Simulties opdracht 7}
+\label{sec:sample_main}
+
+\subsection{Opdrachtomschrijving}
+\label{subsec:sample_opdrom}
+
+Met simulaties kun je ook oppervlaktes en integralen bepalen. Hieronder zie je bijvoorbeeld de grafiek van op het interval .
+
+De oppervlakte onder die grafiek is niet exact te bepalen door primitiveren en dus moet de oppervlakte benaderd worden. Dat kan als volgt met een simulatie:
+
+\begin{enumerate}[label=(\Alph*)]
+\item Neem een rechthoek om de te bepalen oppervlakte
+
+\item Genereer n willekeurige (x,y) in dit oppervlakte
+
+\item Tel het aantal punten m dat in de gevraagde oppervlakte ligt;
+
+\item Bereken de verhouding , dit getal is een benadering van de oppervlakteverhouding. Als n naar oneindig gaat dan convergeert m/n*opp(vierkant) naar de oppervlakte.
+
+\item Voer deze simulatie uit. Vergelijk de uitkomst van de simulatie ook met een numerieke berekening van de waarde van de integraal.
+\end{enumerate}
+
+\newpage
+\subsection{Uitleg}
+\label{subsec:sample_uitv}
+
+In het bijbehorende R file word je aan de hand meegenomen naar een oplossing voor dit probleem.
+
+Ook werd er gevraagd een numerieke berekening van de waarde van de integraal te bepalen. Dit heb ik met deze functie gedaan
+\begin{verbatim}
+integrate(sin(x^2), {x,0,3/2})
+\end{verbatim}
+
+De waarde uit deze berekening is 0.778
+\section{Conclusie}
+\label{subsec:sample_con}
+De oppervlakte onder de grafiek berekend door mijn simulatie was 0.76. Het antwoord vanuit mathematica is 0.78. De simulatie is een goede benadering voor het probleem.
+
+\end{document}

@@ -41,16 +41,16 @@ Gebruik de schuifbalk voor de volgende vragen:
 
 
 
-Voor deze opdracht heb ik gekozen om deze op te lossen met een R shiny document genaamd simulatie_5.Rmd. Wat is R shiny? Dit is een web applicatie framework voor R. Het is interactief en er zijn veel mogelijkheden. Alle antwoorden die hierboven gevraagd worden zijn in de interactieve html die R shiny genereerd weergegeven. Toch wil ik in dit hoofdstuk nog wat meer toelichting geven. 
+Voor deze opdracht heb ik gekozen om deze op te lossen met een R shiny document genaamd simulatie\_5.Rmd. Wat is R shiny? Dit is een web applicatie framework voor R. Het is interactief en er zijn veel mogelijkheden. Alle antwoorden die hierboven gevraagd worden zijn in de interactieve html die R shiny genereerd weergegeven. Toch wil ik in dit hoofdstuk nog wat meer toelichting geven. 
 
 
-Voor E) heb ik eerst een gewone R file aangemaakt genaamd: simulatie_5.R. In deze file wordt de hypothese test uitgevoerd voor 100 test van 1000 waarnemingen.
+Voor E) heb ik eerst een gewone R file aangemaakt genaamd: simulatie\_5.R. In deze file wordt de hypothese test uitgevoerd voor 100 test van 1000 waarnemingen.
 \begin{enumerate}[label=(\Alph*)]
-\item Kans op nulpunten = 0.62 en kans op geen nulpunten = 0.38. Zie file simulatie_5.Rmd
-\item Kans op nulpunten = 0.63 en kans op geen nulpunten = 0.37. Zie file simulatie_5.Rmd
-\item Zie file simulatie_5.Rmd
-\item Kans op geen nulpunten = 0.34. Zie file simulatie_5.Rmd
-\item Convergeert naar 0.63. In file simulatie_5.R kan je de hypothesetest doen. In mijn geval werd hij niet verworpen met een mu van 0.63. De uitleg van mijn stappen kan je daar na lezen.
+\item Kans op nulpunten = 0.62 en kans op geen nulpunten = 0.38. Zie file simulatie\_5.Rmd
+\item Kans op nulpunten = 0.63 en kans op geen nulpunten = 0.37. Zie file simulatie\_5.Rmd
+\item Zie file simulatie\_5.Rmd
+\item Kans op geen nulpunten = 0.34. Zie file simulatie\_5.Rmd
+\item Convergeert naar 0.63. In file simulatie\_5.R kan je de hypothesetest doen. In mijn geval werd hij niet verworpen met een mu van 0.63. De uitleg van mijn stappen kan je daar na lezen.
 \end{enumerate}
 
 

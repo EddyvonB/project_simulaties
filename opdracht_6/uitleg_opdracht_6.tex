@@ -1,0 +1,64 @@
+\documentclass{article}
+\usepackage{enumitem}
+\usepackage{Sweave}
+\begin{document}
+\input{uitleg_opdracht_6-concordance}
+
+
+\section{Simulties opdracht 6}
+\label{sec:sample_main}
+
+\subsection{Opdrachtomschrijving}
+\label{subsec:sample_opdrom}
+
+Een computer kan natuurlijk geen echte toevalsgetallen maken. De getallen tussen 0 en 1 die  
+met ASELECT() in Excel (of met RAND() in Maple) gemaakt worden, heten pseudo-randomgetallen. Een manier om deze pseudo-randomgetallen te maken gebruikt een lineaire recurrente rij van het type: 
+ 
+Zo'n rij kan hoogstens m verschillende gehele getallen achter elkaar voortbrengen. 
+ 
+Voorbeeld: als p = 1 (dat getal heet de kiem), a = 3, b = 1 en m = 6 dan luidt het voorschrift 
+ 
+De termen in de rij worden dan 1, 4, 1 , ... Alleen 1 en 4 worden dan aangenomen. Van de zes mogelijke waarden krijg je er maar 2. De herhaallengte van de rij is 2.  
+ 
+Als a = 3 en b = 4 dan krijg je: 1, 1, 1, ... een constante rij en dus maar een waarde! 
+ 
+ 
+\begin{enumerate}[label=(\Alph*)]
+\item Toch kun je een rijtje met herhaallengte 6 krijgen. Bepaal een tweetal a en b die zo'n rijtje voortbrengen.  
+ 
+\item Hiernaast zie je een rij in een grafiek. Bepaal bijbehorende a en b. Er geldt m = 6. 
+ 
+Als m groot is dan kun je bij geschikte a en b een lange rij verschillende rij getallen krijgen.  
+ 
+\item Neem m = 1009 en zoek met Excel a en b die een "vrij springerige" rij van 1009 verschillende getallen voortbrengen. 
+ 
+Als je de 1009 getallen in onderdeel b) deelt door 1009 dan krijg je 1009 verschillende getallen tussen 0 en 1! In elk van de intervallen liggen ongeveer 100 getallen 
+  
+\item Geef de verdeling van de getallen weer in een grafiek (zoals bij opdracht b)).  
+ 
+De rij is nog niet random omdat er geen herhalingen inzitten. Het zijn nog altijd 1009 verschillende getallen. Dat probleem is eenvoudig oplosbaar: als je alle getallen afkapt op bv. een decimaal dan krijg je slechts 10 getallen. Deze 10 waarden komen elk ongeveer 100 keer voor.  
+ 
+\item Kap alle getallen af op een decimaal en geef de resultaten weer in een grafiek.  
+ 
+\end{enumerate}
+
+Bij zeer grote m en geschikte a en b kun je op deze manier pseudo-randomgetallen maken met een vast aantal decimalen. ASELECT() in Excel levert op deze manier willekeurige getallen met 15 decimalen. Het eerste getal (de kiem p) dat je krijgt na het opstarten is gekoppeld aan de klok van de computer. Door vervolgens op F9 te drukken krijg je steeds nieuwe getallen in de rij. 
+In Maple wordt steeds een nieuwe kiem bepaald door het commando randomize. 
+ 
+Opmerking 
+Deze methode om randomgetallen te maken heet een lineaire randomgenerator. Deze methode komt nog aan de orde in opdracht x.
+
+\newpage
+\subsection{Uitleg}
+\label{subsec:sample_uitv}
+Voor deze opdracht heb ik 2 interactieve programma's geschreven. De 2 scripts zijn practisch hetzelfde echter ronden we in simulaties\_6e.Rmd de waardes in de grafiek zoals gevraagd in 6e.
+
+Het script simulaties\_6.Rmd geeft ondersteuning op vraag A), B) en D) en antwoord op C). Daar waar simulaties\_6e.Rmd louter voor 6e is.
+
+\begin{enumerate}[label=(\Alph*)]
+\item a en b 1 is een oplossing en a = 1 en b =5 is een oplossing
+\item Voor opdracht b, kies je voor x0, 4 en voor a, 1 en b is 5.
+\end{enumerate}
+
+
+\end{document}

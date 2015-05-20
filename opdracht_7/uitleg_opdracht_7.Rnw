@@ -1,0 +1,37 @@
+\documentclass{article}
+\usepackage{enumitem}
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+
+
+\section{Simulties opdracht 7}
+\label{sec:sample_main}
+
+\subsection{Opdrachtomschrijving}
+\label{subsec:sample_opdrom}
+
+In het onderstaande rechterfiguur zie je het resultaat van een simulatie. In dat figuur zie je de beweging van een deeltje dat vanuit een bepaald startpunt - de oorsprong -volstrekt willekeurig een eenheid naar boven of naar beneden of naar rechts of naar links.:
+
+Vanuit de nieuwe positie herhaalt dit proces zich. De beweging die het deeltje gaat uitvoeren kan erg kronkelig zijn. Daarom noemt men deze beweging de dronkenmanswandeling. Zeer kleine deeltjes in een vloeistof lijken zo'n beweging uit te voeren (de Brownbeweging).
+
+\begin{enumerate}[label=(\Alph*)]
+
+\item Maak een spreadsheet dat de dronkenmansbeweging simuleert en zo n grafiek als linksboven toont, ga uit van 100 stapbewegingen.
+
+\item Benader de kans dat het deeltje zich na 100 stappen buiten een cirkel met middelpunt (0,0) en straal 10 bevindt?
+
+\end{enumerate}
+
+\newpage
+\subsection{Uitleg}
+\label{subsec:sample_uitv}
+
+In het bijbehorende R file word je aan de hand meegenomen naar een oplossing voor dit probleem.
+
+
+\section{Conclusie}
+\label{subsec:sample_con}
+De kans dat een deeltje zich na 100 stappen buiten de cirkel valt is 0.59 aldus mijn simulaties.
+
+
+\end{document}

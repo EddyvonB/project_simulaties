@@ -85,6 +85,6 @@ approachChance <- round(sum(total$chance)/ l, 2)
 rm(k,out)
 
 
-##chance that a point is outside the circle is 0.59
+##chance that a point from the data is outside the circle is 0.59
 ##keep our workspace clean
 rm(list = ls() )
