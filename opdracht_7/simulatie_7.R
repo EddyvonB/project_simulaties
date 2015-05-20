@@ -44,16 +44,11 @@ for(l in 1:100){
     rm(i, randomstate, states)
     
     ##check if is inside circle
-    for(j in 1:nrow(df)){
-      if ((df$x[j] - 0)^2 + (df$y[j] - 0)^2 > 10^2){
+      if ((df$x[nrow(df)] - 0)^2 + (df$y[nrow(df)] - 0)^2 > 10^2){
         out=out+1
-        break
       }
-    }
   }
   
-  ##keep the workspace clean
-  rm(j)
   ##function for a circle
   circleFun <- function(center = c(0,0),diameter = 1, npoints = 100){
     r = diameter / 2
@@ -85,6 +80,6 @@ approachChance <- round(sum(total$chance)/ l, 2)
 rm(k,out)
 
 
-##chance that a point from the data is outside the circle is 0.59
+##chance that the last point from the data is outside the circle is 0.36
 ##keep our workspace clean
 rm(list = ls() )
