@@ -53,7 +53,6 @@ renderPlot({
 ##print the unique values.
 renderPrint({
     a <- myReact()
-    ##paste0(nrow(unique(a$value)), ' verschillende getallen')    
     unique(a$value)
   })
 

@@ -4,7 +4,7 @@
 \SweaveOpts{concordance=TRUE}
 
 
-\section{Simulties opdracht 4}
+\section{Simulties opdracht 5}
 \label{sec:sample_main}
 
 \subsection{Opdrachtomschrijving}
