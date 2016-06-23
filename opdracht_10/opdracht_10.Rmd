@@ -1,0 +1,53 @@
+---
+title: "Project simulaties opdracht 9"
+author: "Eddy van Beekveld"
+date: "6/21/2016"
+output: html_document
+runtime: shiny
+---
+
+```{r, echo=FALSE}
+###required packages
+library(shiny)
+library(ggplot2)
+
+
+##make an input where you can determine m, x0, a, b
+inputPanel(
+    numericInput("deltaT", label = "deltaT",
+              min = 0 , max =5 , value = 0.5 , step = 0.1),
+    numericInput("z0", label = "x0",
+              min = 0 , max =5 , value = 0.05 , step = 0.01),
+  uiOutput('test')
+)
+
+###A reactive function, when you change the value of the input, the output changes.
+myReact <- reactive({
+  out<- data.frame( count = double(),
+                    value = double())
+  j = 1
+  for(i in seq(input$deltaT,300,input$deltaT)){
+    if(nrow(out) == 0){
+      out[j,2] <- input$z0
+      out[j,1] <- i
+    } else {
+      out[j,2] <- out$value[j-1] -(5/1000) * out$value[j-1] * input$deltaT
+      out[j,1] <- i
+    }
+    j <- j + 1
+}
+  out
+})
+
+##outputplot
+renderPlot({
+  ggplot(myReact()) +
+  geom_point(aes(count, value )) +
+  scale_x_continuous("t") +
+  scale_y_continuous("Z(t)")
+
+})
+
+
+
+```

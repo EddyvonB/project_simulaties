@@ -1,0 +1,60 @@
+---
+title: "Project simulaties opdracht 9"
+author: "Eddy van Beekveld"
+date: "6/21/2016"
+output: html_document
+runtime: shiny
+---
+
+```{r, echo=FALSE}
+###required packages
+library(shiny)
+library(ggplot2)
+
+
+##make an input where you can determine m, x0, a, b
+inputPanel(
+    numericInput("m", label = "m",
+              min = 1 , max =10000 , value = 1000 , step = 1),
+    numericInput("x0", label = "x0",
+              min = 1 , max =10000 , value = 1 , step = 1),
+    numericInput("a", label = "a",
+              min = 0 , max =10000 , value = 1 , step = 1),
+    numericInput("b", label = "b",
+              min = 0 , max =10000 , value = 11 , step = 1),
+  uiOutput('test')
+)
+
+###A reactive function, when you change the value of the input, the output changes.
+myReact <- reactive({
+  out<- data.frame( count = integer(),
+                    value = integer())
+  for(i in 1:input$m){
+    if(nrow(out) == 0){
+      out[i,2] <- (input$a*input$x0 + input$b) %% input$m
+      out[i,1] <- i
+    } else {
+      out[i,2] <- (input$a*out$value[i-1] + input$b) %% input$m
+      out[i,1] <- i
+    }
+}
+  out
+})
+
+##outputplot
+renderPlot({
+  ggplot(myReact()) +
+  geom_point(aes(count, value )) +
+  scale_x_continuous("i") +
+  scale_y_continuous("Xi")
+
+})
+
+##print the unique values.
+renderPrint({
+    a <- myReact()
+    unique(a$value)
+  })
+
+
+```
